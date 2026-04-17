@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--  Author       :  Anoop Jayaprakash  -->
+<!--  Copyright(c) :  2023-Present Zinfog Codelabs Pvt Ltd (<https://www.zinfog.com>).  -->
+<!--  License      :  LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).  -->
+
+<odoo>
+    <data>
+        <record id="action_stock_location_pdf_report" model="ir.actions.report">
+            <field name="name">Location PDF Report</field>
+            <field name="model">stock.location.pdf.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">zcl_location_report.stock_location_pdf_report_template</field>
+            <field name="report_file">zcl_location_report.stock_location_pdf_report_template</field>
+        </record>
+    </data>
+</odoo>

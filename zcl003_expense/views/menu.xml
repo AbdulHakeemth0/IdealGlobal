@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem id="expense_config_type_id"
+              name="Expenses"
+              sequence="48"/>
+
+    <menuitem id="submenu_jv_expense_config_type_id"
+              name="JV Expenses Form"
+              parent="zcl003_expense.expense_config_type_id"
+              sequence="2"/>
+
+    <menuitem id="menu_container_exp_type"
+              name="JV Container Exp"
+              action="zcl003_expense.new_action_move_boolean_type"
+              parent="zcl003_expense.submenu_jv_expense_config_type_id"
+              sequence="1"/>
+
+    <menuitem id="menu_purchase_exp_type"
+              name="JV Purchase Exp"
+              action="zcl003_expense.new_action_move_purchase_type"
+              parent="zcl003_expense.submenu_jv_expense_config_type_id"
+              sequence="2"/>
+
+    <menuitem id="menu_salary_exp_type"
+              name="JV Salary Exp"
+              action="zcl003_expense.new_action_move_salary_type"
+              parent="zcl003_expense.submenu_jv_expense_config_type_id"
+              sequence="3"/>
+
+    <menuitem id="menu_branch_exp_type"
+              name="JV Branch Exp"
+              action="zcl003_expense.new_action_move_branch_type"
+              parent="zcl003_expense.submenu_jv_expense_config_type_id"
+              sequence="4"/>
+
+    <menuitem id="menu_transfer_exp_type"
+              name="JV Transfer Exp"
+              action="zcl003_expense.new_action_move_transfer_type"
+              parent="zcl003_expense.submenu_jv_expense_config_type_id"
+              sequence="5"/>
+
+    <menuitem id="menu_general_exp_type"
+              name="JV General Exp"
+              action="zcl003_expense.new_action_move_general_type"
+              parent="zcl003_expense.submenu_jv_expense_config_type_id"
+              sequence="6"/>
+
+    <menuitem id="menu_closingentries_exp_type"
+              name="JV Closing Entries Exp"
+              action="zcl003_expense.new_action_move_closing_entries_type"
+              parent="zcl003_expense.submenu_jv_expense_config_type_id"
+              sequence="7"/>
+
+
+    <menuitem id="submenu_expense_config_type_id"
+              name="Expenses Form"
+              parent="zcl003_expense.expense_config_type_id"
+              sequence="1"/>
+
+    <menuitem id="customer_incentive_menu_type_id"
+              name="Customer Incentive Exp"
+              parent="zcl003_expense.submenu_expense_config_type_id"
+              action="zcl003_expense.action_customer_incentive_master_id"
+              sequence="5"/>
+
+
+    <menuitem id="electric_menu_type_id"
+              name="Electric"
+              parent="zcl003_expense.submenu_expense_config_type_id"
+              action="zcl003_expense.action_electric_master_id"
+              sequence="2"/>
+
+    <menuitem id="general_expense_menu_type_id"
+              name="General Exp"
+              parent="zcl003_expense.submenu_expense_config_type_id"
+              action="zcl003_expense.action_general_expense_master_id"
+              sequence="8"/>
+
+    <menuitem id="refreshment_menu_type_id"
+              name="Refreshment Exp"
+              parent="zcl003_expense.submenu_expense_config_type_id"
+              action="zcl003_expense.action_refreshment_master_id"
+              sequence="6"/>
+
+    <menuitem id="rent_menu_type_id"
+              name="Rent"
+              parent="zcl003_expense.submenu_expense_config_type_id"
+              action="zcl003_expense.action_rent_master_id"
+              sequence="3"/>
+
+    <menuitem id="store_menu_type_id"
+              name="Store"
+              parent="zcl003_expense.submenu_expense_config_type_id"
+              action="zcl003_expense.action_store_master_id"
+              sequence="4"/>
+
+    <menuitem id="transportation_menu_type_id"
+              name="Transportation Indirect Exp"
+              parent="zcl003_expense.submenu_expense_config_type_id"
+              action="zcl003_expense.action_transportation_master_id"
+              sequence="7"/>
+
+    <menuitem id="expenses_menu_type_fuel_id"
+              name="Fule"
+              parent="zcl003_expense.submenu_expense_config_type_id"
+              action="zcl003_expense.action_expense_master_id"
+              sequence="1"/>
+
+
+</odoo>

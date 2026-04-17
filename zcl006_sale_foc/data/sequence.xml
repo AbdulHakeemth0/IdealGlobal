@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="seq_second_foc" model="ir.sequence">
+            <field name="name">Second FOC Sequence</field>
+            <field name="code">sale.foc.second</field>
+            <field name="prefix">PFOC</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_category_foc" model="ir.sequence">
+            <field name="name">Category FOC Sequence</field>
+            <field name="code">sale.foc.category</field>
+            <field name="prefix">CFOC</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

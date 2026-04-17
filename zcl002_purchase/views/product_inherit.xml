@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_template_inherit_form_view" model="ir.ui.view">
+         <field name="name">product.template.form</field>
+         <field name="model">product.template</field>
+         <field name="inherit_id" ref="product.product_template_only_form_view"/>
+         <field name="arch" type="xml">
+             <xpath expr="//page[@name='general_information']/group//group[@name='group_general']//field[@name='detailed_type']" position="attributes">
+                     <attribute name="string">Division Group</attribute>
+             </xpath>
+
+             <xpath expr="//page[@name='general_information']/group//group[@name='group_standard_price']//field[@name='categ_id']" position="before">
+                 <field name="brand_name"/>
+                 <field name="item_group"/>
+                 <field name="item_sub_group"/>
+                 <field name="item_category"/>
+                 <field name="country"/>
+                 <field name="feed_goods"/>
+                 <field name="dead_stock"/>
+                 <field name="lunch_times"/>
+                 <field name="box"/>
+                 <field name="bag"/>
+             </xpath>
+         </field>
+    </record>
+</odoo>

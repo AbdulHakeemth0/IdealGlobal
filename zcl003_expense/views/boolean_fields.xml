@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <record id="account_boolean_fields_view_forms" model="ir.ui.view">
+        <field name="name">boolean.fields.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_reference']" position="before">
+                <field name="container_exp" invisible="1"/>
+                <field name="purchase_exp" invisible="1"/>
+                <field name="salary_exp" invisible="1"/>
+                <field name="branch_exp" invisible="1"/>
+                <field name="transfer_exp" invisible="1"/>
+                <field name="general_exp" invisible="1"/>
+                <field name="closingentries_exp" invisible="1"/>
+                <field name="normal_exp" invisible="1"/>
+            </xpath>
+        </field>
+     </record>
+
+</odoo>

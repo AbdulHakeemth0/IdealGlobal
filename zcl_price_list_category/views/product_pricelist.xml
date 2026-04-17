@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="team_sale_price_list_form_view" model="ir.ui.view">
+        <field name="name">website_sale.price.list.form</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="model">product.pricelist</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group/group/field[@name='currency_id']" position="after">
+                <field name="pricelist_category_id"/>
+            </xpath>
+            <xpath expr="//field[@name='item_ids']//tree//field[@name='product_tmpl_id']" position="after">
+                <field name="product_code"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="order_form_inherit_purchase_inherit" model="ir.ui.view">
+            <field name="name">purchase.order.form.new.purchase</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="purchase_return" invisible="1"/>
+                    <field name="date" force_save="1" attrs="{'invisible': [('purchase_return', '!=', True)]}"/>
+                </xpath>
+                <xpath expr="//button[@name='button_confirm'][1]" position="replace">
+                    <field name="purchase_return" invisible="1"/>
+                    <button name="button_confirm" id="button_confirm" data-hotkey="v" string="Confirm Order" class="btn-primary" type="object" context="{'validate_analytic': True}" attrs="{'invisible': ['|',('state', 'not in', ['sent']), ('purchase_return', '=', True)]}"/>
+                </xpath>
+                <xpath expr="//button[@name='button_confirm'][2]" position="replace">
+                    <field name="purchase_return" invisible="1"/>
+                    <button name="button_confirm" data-hotkey="v" string="Confirm Order" type="object" context="{'validate_analytic': True}" attrs="{'invisible': ['|',('state', 'not in', ['draft']), ('purchase_return', '=', True)]}"/>
+                </xpath>
+                <xpath expr="//button[@name='print_quotation'][1]" position="replace">
+                    <field name="purchase_return" invisible="1"/>
+                    <button name="print_quotation" id="print_quotation" data-hotkey="v" string="Print RFQ" class="btn-primary" type="object" context="{'validate_analytic': True}" attrs="{'invisible': ['|',('state', 'not in', ['sent']), ('purchase_return', '=', True)]}"/>
+                </xpath>
+               <xpath expr="//notebook/page/field[@name='order_line']/tree/field[@name='product_qty']" position="after">
+                    <field name="purchase_return" invisible="1"/>
+                    <button name="open_return_wizard" type="object" title="Orders" icon="fa-history" attrs="{'invisible': [('purchase_return', '!=', True)]}"/>
+               </xpath>
+                <xpath expr="//field[@name='state']" position="replace">
+                    <field name="state" widget="statusbar" statusbar_visible="draft"/>
+                </xpath>
+                <xpath expr="//button[@name='button_cancel']" position="after">
+                    <button name="button_cancel" string="Return" type="object" attrs="{'invisible': ['|',('state', 'not in', ['draft']), ('purchase_return', '!=', True)]}"/>
+                </xpath>
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_picking" type="object"
+                            class="oe_stat_button" icon="fa-users" attrs="{'invisible': [('purchase_return', '!=', True)]}">
+                        <field name="picking_count" widget="statinfo" force_save="1" string="Transfer" attrs="{'invisible': [('purchase_return', '!=', True)]}"/>
+                    </button>
+                    <button name="action_view_refund" type="object"
+                            class="oe_stat_button" icon="fa-history" attrs="{'invisible': [('purchase_return', '!=', True)]}">
+                        <field name="refund_count" widget="statinfo" force_save="1" string="Refund Note" attrs="{'invisible': [('purchase_return', '!=', True)]}"/>
+                    </button>
+                </div>
+            </field>
+        </record>
+
+
+
+
+        <record id="purchase.purchase_rfq" model="ir.actions.act_window">
+            <field name="name">Requests for Quotation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_mode">tree,kanban,form,pivot,graph,calendar,activity</field>
+            <field name="view_id" ref="purchase.purchase_order_kpis_tree"/>
+            <field name="search_view_id" ref="purchase.view_purchase_order_filter"/>
+            <field name="context">{'search_default_my_quotation': 1, 'default_purchase_return': False}</field>
+            <field name="domain">[('purchase_return', '=', False)]</field>
+            <field name="help" type="html">
+                         <p class="o_view_nocontent_smiling_face">
+                                   No request for quotation found. Let's create one!
+                         </p>
+                         <p>
+                            Requests for quotation are documents that will be sent to your suppliers to request prices for different products you consider buying.
+                            Once an agreement has been found with the supplier, they will be confirmed and turned into purchase orders.
+                         </p>
+            </field>
+        </record>
+
+        <record id="action_quotations_with_return" model="ir.actions.act_window">
+            <field name="name">Purchase Return</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_id" ref="purchase.purchase_order_kpis_tree"/>
+            <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
+            <field name="search_view_id" ref="purchase.view_purchase_order_filter"/>
+            <field name="context">{'default_purchase_return': True}</field>
+            <field name="domain">[('purchase_return', '=', True)]</field>
+            <field name="help" type="html">
+                 <p class="o_view_nocontent_smiling_face">
+                    Create a new quotation, the first step of a new sale!
+                 </p>
+                 <p>
+                    Once the quotation is confirmed, it becomes a sales order.
+                    <br/>
+                    You will be able to create an invoice and collect the payment.
+                 </p>
+            </field>
+        </record>
+        <record id="purchase.purchase_form_action" model="ir.actions.act_window">
+            <field name="name">Purchase Orders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_mode">tree,kanban,form,pivot,graph,calendar,activity</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('purchase.purchase_order_view_tree')}),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('purchase.purchase_order_view_kanban_without_dashboard')}),
+            ]"/>
+            <field name="domain">[('state','in',('purchase', 'done'))]</field>
+            <field name="search_view_id" ref="purchase.purchase_order_view_search"/>
+            <field name="context">{'default_purchase_return': False}</field>
+            <field name="domain">[('state', 'not in', ('draft', 'sent', 'cancel')), ('purchase_return', '=', False)]</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                No purchase order found. Let's create one!
+              </p><p>
+                Once you ordered your products to your supplier, confirm your request for quotation and it will turn into a purchase order.
+              </p>
+            </field>
+        </record>
+
+
+
+
+        <menuitem id="purchase_return"
+                  name="Purchase Return"
+                  parent="purchase.menu_procurement_management"
+                  action="action_quotations_with_return"
+                  sequence="25"
+        />
+
+    </data>
+</odoo>

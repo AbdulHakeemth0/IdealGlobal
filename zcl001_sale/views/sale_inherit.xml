@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+     <record id="order_form_inherit_sale" model="ir.ui.view">
+         <field name="name">sale.order.form.new.sale</field>
+         <field name="model">sale.order</field>
+         <field name="inherit_id" ref="sale.view_order_form"/>
+         <field name="arch" type="xml">
+<!--             <xpath expr="//button[@name='action_confirm'][2]" position="attributes">-->
+<!--              <attribute name="groups">zcl001_sale.group_admin_user</attribute>-->
+<!--           </xpath>-->
+           <xpath expr="//field[@name='payment_term_id']" position="before">
+              <field name="sales_account"/>
+           </xpath>
+             <xpath expr="//field[@name='sale_order_template_id']" position="after">
+              <field name="special_sale_order"/>
+           </xpath>
+             <xpath expr="//field[@name='order_line']//tree//field[@name='price_unit']" position="attributes">
+                 <attribute name="attrs">{'column_invisible': [('parent.special_sale_order', '=', True)]}</attribute>
+             </xpath>
+             <xpath expr="//field[@name='order_line']//tree//field[@name='product_template_id']"
+                   position="after">
+                <field name="return_qty" invisible="1"/>
+            </xpath>
+           <xpath expr="//page[@name='other_information']/group/group[@name='sales_person']/field[@name='team_id']" position="attributes">
+               <attribute name="invisible">1</attribute>
+           </xpath>
+           <xpath expr="//field[@name='partner_id']" position="after">
+              <field name="current_balance_customer"/>
+              <field name="balance_limit"/>
+              <field name="team_id"/>
+              <field name="due_days"/>
+              <field name="sales_type"/>
+           </xpath>
+           <xpath expr="//field[@name='payment_term_id']" position="after">
+               <field name="delivery_terms"/>
+               <field name="delivery_note_no"/>
+           </xpath>
+           <xpath expr="//field[@name='payment_term_id']" position="before">
+              <field name="narration"/>
+           </xpath>
+         <xpath expr="//group[@name='note_group']" position="after">
+               <group name="summary_group">
+                        <p style="font-size:15px">
+                            <strong><h2>Summary</h2></strong>
+                        </p>
+                   <br/>
+                        <field name="universal_discount_enable" class="oe_inline" attrs="{'readonly':[('state', 'in', ['sale','done' ,'cancel'])]}"/>
+                        <field name="universal_discount_type" string="Discount Type" attrs="{'readonly':[('state', 'in', ['sale', 'done' ,'cancel'])], 'invisible': [('universal_discount_enable', '!=', True)]}"/>
+                        <field name="universal_discount_rate" string="Discount Rate"
+                                       attrs="{'invisible': ['|',('universal_discount_type', '!=', 'percent'),('universal_discount_enable', '!=', True)],'readonly':[('state', 'in', ['sale','done' ,'cancel'])]}"/>
+                        <field name="universal_discount_amount" string="Discount Amount"
+                                       attrs="{'invisible': ['|',('universal_discount_type', '!=', 'amount'),('universal_discount_enable', '!=', True)],'readonly':[('state', 'in', ['sale','done' ,'cancel'])]}"/>
+
+                    </group>
+            </xpath>
+
+            <xpath expr="//group[@name='sale_total']" position="inside">
+                    <field name="universal_total_display_discount_amount" string="Universal Discount" colspan="2"
+                           readonly="1"
+                           attrs="{'invisible': [('universal_discount_enable', '!=', True)]}"/>
+            </xpath>
+         </field>
+
+     </record>
+      <record id="custom_view_order_form" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                                <xpath expr="//button[@name='action_confirm']" position="after">
+                    <!-- Add the custom button here -->
+                    <button name="action_run_workflow" string="Run Workflow" type="object" class="oe_highlight" states="draft"/>
+                </xpath>
+                <xpath expr="//page/field[@name='order_line']/tree/field[@name='product_uom_qty']" position="before">
+                    <field name="qty_available" readonly="1"/>
+                    <field name="image_url" />
+                          <button name="last_po_view" type="object" class="fa fa-list-ol">
+
+                          </button>
+                </xpath>
+                <xpath expr="//page/field[@name='order_line']/tree/field[@name='product_uom_qty']" position="after">
+                    <field name="stock_in_hand"/>
+                    <field name="discount_on_foc"/>
+                </xpath>
+            </field>
+      </record>
+
+
+<!--        <record id="view_sale_order_form_inherit" model="ir.ui.view">-->
+<!--            <field name="name">sale.order.form.inherit</field>-->
+<!--            <field name="model">sale.order</field>-->
+<!--            <field name="inherit_id" ref="sale.view_order_form"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//button[@name='action_confirm']" position="after">-->
+<!--                    &lt;!&ndash; Add the custom button here &ndash;&gt;-->
+<!--                    <button name="action_runs_workflow" string="Running Workflow" type="object" class="oe_highlight"/>-->
+<!--                </xpath>-->
+<!--            </field>-->
+
+<!--        </record>-->
+</odoo>

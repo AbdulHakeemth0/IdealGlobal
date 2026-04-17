@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="sale_order_form_inherit_view" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_confirm']" position="after">
+                    <button name="action_apply_foc" string="Apply Product FOC" type="object" class="oe_highlight" states="draft"/>
+                    <button name="action_apply_categ_foc" string="Apply Category FOC" type="object" class="oe_highlight" states="draft"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

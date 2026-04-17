@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--        Inherited res partner mode for adding pay on account boolean field-->
+        <record id="add_to_cart_form_inherit" model="ir.ui.view">
+            <field name="name">add.to.cart.form.inherit</field>
+            <field name="model">add.to.cart</field>
+            <field name="inherit_id" ref="add_to_cart.view_add_to_cart_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date']" position="after">
+                    <field name="narration"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

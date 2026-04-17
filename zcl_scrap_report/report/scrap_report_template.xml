@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--  Author       :  Anoop Jayaprakash  -->
+<!--  Copyright(c) :  2023-Present Zinfog Codelabs Pvt Ltd (<https://www.zinfog.com>).  -->
+<!--  License      :  LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).  -->
+
+<odoo>
+    <template id="scrap_pdf_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <header>
+                    <style>
+                        table, th, td {
+                        border:1px solid black;
+                        border-collapse: collapse;
+                        }
+                    </style>
+                </header>
+                <div align="center">
+                    <h2>Stock Report</h2>
+                </div>
+                <br/>
+                <table clas="table table-bordered" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th>Reference</th>
+                            <th>Date</th>
+                            <th>Product</th>
+                            <th>Quantity unit of measure</th>
+                            <th>Source Location</th>
+                            <th>Scrap Location</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="index" t-value="1"/>
+                        <t t-foreach="list_data" t-as="data">
+                            <tr>
+<!--                                <td>-->
+<!--                                    <t t-esc="index"/>-->
+<!--                                </td>-->
+                                <td>
+                                    <t t-esc="data['reference']"/>
+                                </td>
+                                <td>
+                                    <t t-esc="data['date']"/>
+                                </td>
+                                <td>
+                                    <t t-esc="data['product']"/>
+                                </td>
+                                <td>
+                                    <t t-esc="data['quantity']"/>
+                                </td>
+                                <td>
+                                    <t t-esc="data['source_location']"/>
+                                </td>
+                                <td>
+                                    <t t-esc="data['scrap_location']"/>
+                                </td>
+                                <td>
+                                    <t t-esc="data['status']"/>
+                                </td>
+                            </tr>
+                            <t t-set="index" t-value="index+1"/>
+                        </t>
+                    </tbody>
+                </table>
+            </t>
+        </t>
+    </template>
+</odoo>

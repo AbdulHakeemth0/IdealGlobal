@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_add_to_cart_form" model="ir.ui.view">
+            <field name="name">Add To Cart Form</field>
+            <field name="model">add.to.cart</field>
+            <field name="arch" type="xml">
+                <form string="Add To Cart Form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="country_id"/>
+                                <field name="date"/>
+                                <field name="narration"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Product" name="product_list">
+                                <field name="order_line_ids">
+                                    <tree editable="bottom">
+                                        <field name="add_to_cart_id" force_save="1" invisible="1"/>
+                                        <field name="product_id" force_save="1"/>
+                                        <field name="image" force_save="1"/>
+                                        <field name="qty" force_save="1"/>
+                                        <field name="unit_price" force_save="1" string="Unit Price"/>
+                                        <field name="price" force_save="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <group>
+                            <field name="total"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_add_to_cart_tree" model="ir.ui.view">
+            <field name="name">Add To Cart Tree</field>
+            <field name="model">add.to.cart</field>
+            <field name="arch" type="xml">
+                <tree string="Add To Cart" default_order='id desc'>
+                    <field name="partner_id" force_save="1"/>
+                    <field name="country_id" force_save="1"/>
+                    <field name="date" force_save="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_add_to_cart_search" model="ir.ui.view">
+            <field name="name">Add To Cart</field>
+            <field name="model">add.to.cart</field>
+            <field name="arch" type="xml">
+                <search string="Search Foam Type">
+                    <filter name="partner_id" help="partner_id"/>
+                    <filter name="country_id" help="country_id"/>
+                    <filter name="date" help="date"/>
+                </search>
+            </field>
+        </record>
+        <record id="view_add_to_cart_action" model="ir.actions.act_window">
+            <field name="name">Add To Cart</field>
+            <field name="res_model">add.to.cart</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="add_to_cart"
+                  name="Add To Cart"
+                  parent="sale.menu_sale_config"
+                  action="view_add_to_cart_action"
+                  sequence="14"
+        />
+    </data>
+
+</odoo>

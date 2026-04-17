@@ -1,0 +1,10 @@
+# -*- coding: utf-8 -*-
+###################################################################################
+
+# Author       :  Anoop Jayaprakash
+# Copyright(c) :  2023-Present Zinfog Codelabs Pvt Ltd (<https://www.zinfog.com>).
+# License      :  LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+
+###################################################################################
+
+from . import stock_report

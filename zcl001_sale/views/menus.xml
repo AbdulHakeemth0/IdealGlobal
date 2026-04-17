@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="menu_report_sale" name="Reports" parent="sale.sale_menu_root" sequence="45"/>
+    <menuitem id="menu_stock_moves" name="Stock Moves" action="stock.stock_move_action" parent="menu_report_sale" sequence="45"/>
+    <menuitem id="menu_customer_wise" name="Customerwise Collection Report" action="account.action_account_payments" parent="menu_report_sale" sequence="46"/>
+    <menuitem id="menu_customer_wise_sale" name="Customer wise Sale Summary" action="sale.action_order_report_all" parent="menu_report_sale" sequence="47"/>
+    <menuitem id="menu_item_movement" name="Item Movement" action="stock.stock_move_action" parent="menu_report_sale" sequence="48"/>
+</odoo>

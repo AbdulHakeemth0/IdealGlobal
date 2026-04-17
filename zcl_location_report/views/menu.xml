@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--  Author       :  Anoop Jayaprakash  -->
+<!--  Copyright(c) :  2023-Present Zinfog Codelabs Pvt Ltd (<https://www.zinfog.com>).  -->
+<!--  License      :  LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).  -->
+
+<odoo>
+    <menuitem name="Location PDF Report"
+              id="zcl_stock_location_pdf_report"
+              parent="stock.menu_warehouse_report"
+              action="stock_location_pdf_report_action"/>
+</odoo>

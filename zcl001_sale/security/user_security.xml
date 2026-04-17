@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<odoo>
+    <data>
+
+        <record model="ir.module.category" id="admin_user_group">
+            <field name="name">Admin</field>
+            <field name="sequence">15</field>
+            <field name="description">Admin</field>
+        </record>
+        <record model="ir.module.category" id="invoice_user_group">
+            <field name="name">User</field>
+            <field name="sequence">16</field>
+            <field name="description">User</field>
+        </record>
+
+<!--        <record model="ir.module.category" id="credit_notes_user_group">-->
+<!--            <field name="name">User Credit Notes</field>-->
+<!--            <field name="sequence">17</field>-->
+<!--            <field name="description">Credit Note User access</field>-->
+<!--        </record>-->
+
+<!--        <record id="group_credit_note_user" model="res.groups">-->
+<!--             <field name="name">Credit Note User</field>-->
+<!--             <field name="category_id" ref="credit_notes_user_group"/>-->
+<!--        </record>-->
+
+<!--        <record model="ir.module.category" id="journal_entries_user_group">-->
+<!--            <field name="name">User Journal Entries</field>-->
+<!--            <field name="sequence">18</field>-->
+<!--            <field name="description">Journal Entries User access</field>-->
+<!--        </record>-->
+<!--        <record id="group_journal_entries_user" model="res.groups">-->
+<!--             <field name="name">Journal Entries User</field>-->
+<!--             <field name="category_id" ref="journal_entries_user_group"/>-->
+<!--        </record>-->
+
+
+
+         <record id="group_invoices_user" model="res.groups">
+             <field name="name">User</field>
+             <field name="category_id" ref="invoice_user_group"/>
+         </record>
+
+         <record id="group_admin_user" model="res.groups">
+            <field name="name">Admin</field>
+             <field name="category_id" ref="admin_user_group"/>
+         </record>
+
+    </data>
+</odoo>
+
+

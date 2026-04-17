@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_account_journal_form" model="ir.ui.view">
+        <field name="name">account.journal.form</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='type']" position="before">
+                     <field name="user_id"/>
+                     <field name="team_id"/>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="view_account_tree" model="ir.ui.view">
+            <field name="name">account.journal.tree</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='type']" position="before">
+                    <field name="user_id"/>
+                </xpath>
+            </field>
+        </record>
+<!--        <record model="ir.ui.view" id="account_invoice_formss_inh">-->
+<!--        <field name="name">Account Invoice</field>-->
+<!--        <field name="model">account.move</field>-->
+<!--        <field name="inherit_id" ref="account.view_move_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--    <xpath expr="//button[@name='action_post'][2]" position="attributes">-->
+<!--              <attribute name="groups">zcl001_sale.group_admin_user</attribute>-->
+<!--           </xpath>-->
+<!--        </field></record>-->
+
+<!--        <record model="ir.ui.view" id="account_customer_payment_formss_inh">-->
+<!--        <field name="name">Account Payment</field>-->
+<!--        <field name="model">account.payment</field>-->
+<!--        <field name="inherit_id" ref="account.view_account_payment_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//button[@name='action_post']" position="attributes">-->
+<!--              <attribute name="groups">zcl001_sale.group_admin_user</attribute>-->
+<!--           </xpath>-->
+<!--        </field>-->
+<!--        </record>-->
+    </data>
+</odoo>

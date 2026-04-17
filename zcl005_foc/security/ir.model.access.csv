@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_foc,access.sale.foc,model_sale_foc,,1,1,1,1
+access_foc_product,access.foc.product,model_foc_product,,1,1,1,1

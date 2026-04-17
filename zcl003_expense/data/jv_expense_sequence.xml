@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="sequence_jvcontainer" model="ir.sequence">
+            <field name="name">Jv Container Sequence</field>
+            <field name="code">container.sequence</field>
+            <field name="prefix">JVC</field>
+            <field name="padding">6</field>
+            <field name="number_next_actual">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="sequence_jvpurchase" model="ir.sequence">
+            <field name="name">Jv Container Sequence</field>
+            <field name="code">purchase.sequence</field>
+            <field name="prefix">JVP</field>
+            <field name="padding">5</field>
+            <field name="number_next_actual">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="sequence_jvsalary" model="ir.sequence">
+            <field name="name">Jv Salary Sequence</field>
+            <field name="code">salary.sequence</field>
+            <field name="prefix">JVS</field>
+            <field name="padding">5</field>
+            <field name="number_next_actual">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="sequence_jvbranch" model="ir.sequence">
+            <field name="name">Jv Branch Sequence</field>
+            <field name="code">branch.sequence</field>
+            <field name="prefix">JVB</field>
+            <field name="padding">5</field>
+            <field name="number_next_actual">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="sequence_jvtansfer" model="ir.sequence">
+            <field name="name">Jv Transfer Sequence</field>
+            <field name="code">transfer.sequence</field>
+            <field name="prefix">JVT</field>
+            <field name="padding">5</field>
+            <field name="number_next_actual">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="sequence_jvgeneral" model="ir.sequence">
+            <field name="name">Jv General Sequence</field>
+            <field name="code">general.sequence</field>
+            <field name="prefix">JVG</field>
+            <field name="padding">5</field>
+            <field name="number_next_actual">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="sequence_jvcloseentry" model="ir.sequence">
+            <field name="name">Jv Close Entry Sequence</field>
+            <field name="code">closeentry.sequence</field>
+            <field name="prefix">JVCL</field>
+            <field name="padding">4</field>
+            <field name="number_next_actual">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>
+
+

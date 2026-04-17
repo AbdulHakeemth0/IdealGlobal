@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id='view_stock_landed_cost_form_inherit' model='ir.ui.view'>
+            <field name="name">stock.landed.cost.form</field>
+            <field name="model">stock.landed.cost</field>
+            <field name="inherit_id" ref="stock_landed_costs.view_stock_landed_cost_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='valuation_adjustments']" position="after">
+                    <page string="Product Cost" name="product_costs">
+                        <field name="product_cost_lines">
+                            <form string="Product Cost">
+                                <group>
+                                    <group>
+                                        <field name="product_id"/>
+                                        <field name="name"/>
+                                    </group>
+                                    <group>
+                                        <field name="currency_id" invisible="1"/>
+                                        <field name="price_unit"/>
+                                        <field name="landed_cost_id" invisible="1"/>
+                                    </group>
+                                </group>
+                            </form>
+                            <tree string="Product Cost" editable="bottom" create="0">
+                                <field name="product_id" readonly="1"/>
+                                <field name="name" readonly="1"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="price_unit"/>
+                                <field name="landed_cost_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

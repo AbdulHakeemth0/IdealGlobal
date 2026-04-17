@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--  Author       :  Anoop Jayaprakash  -->
+<!--  Copyright(c) :  2023-Present Zinfog Codelabs Pvt Ltd (<https://www.zinfog.com>).  -->
+<!--  License      :  LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).  -->
+
+<odoo>
+    <template id="stock_pdf_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <header>
+                    <style>
+                        table, th, td {
+                        border:1px solid black;
+                        border-collapse: collapse;
+                        }
+                    </style>
+                </header>
+                <div align="center">
+                    <h2>Stock Report</h2>
+                </div>
+                <br/>
+                <table clas="table table-bordered" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th>Sl.No</th>
+                            <th>Product</th>
+                            <th>On Hand</th>
+                            <th>Free to Use</th>
+                            <th>Incoming</th>
+                            <th>Outgoing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="index" t-value="1"/>
+                        <t t-foreach="list_data" t-as="data">
+                            <tr>
+                                <td>
+                                    <t t-esc="index"/>
+                                </td>
+                                <td>
+                                    <t t-esc="data['product']"/>
+                                </td>
+                                <td>
+                                    <t t-esc="data['available_quantity']"/>
+                                </td>
+                                <td>
+                                    <t t-esc="data['free_quantity']"/>
+                                </td>
+                                <td>
+                                    <t t-esc="data['incoming_quantity']"/>
+                                </td>
+                                <td>
+                                    <t t-esc="data['outgoing_quantity']"/>
+                                </td>
+                            </tr>
+                            <t t-set="index" t-value="index+1"/>
+                        </t>
+                    </tbody>
+                </table>
+            </t>
+        </t>
+    </template>
+</odoo>

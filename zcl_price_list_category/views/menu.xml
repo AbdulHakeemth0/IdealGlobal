@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--  Author       :  Anoop Jayaprakash  -->
+<!--  Copyright(c) :  2023-Present Zinfog Codelabs Pvt Ltd (<https://www.zinfog.com>).  -->
+<!--  License      :  LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).  -->
+
+<odoo>
+
+    <menuitem name="Price List Category"
+              id="price_list_category_menu"
+              parent="sale.product_menu_catalog"
+              action="price_list_category_action"
+              sequence="3"/>
+</odoo>

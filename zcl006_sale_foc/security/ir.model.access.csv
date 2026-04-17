@@ -1,0 +1,9 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_second_foc_sale,access.second.foc.sale,model_second_foc_sale,,1,1,1,1
+access_foc_product_line,access.foc.product.line,model_foc_product_line,,1,1,1,1
+access_foc_sale_wizard,access.foc.sale.wizard,model_foc_sale_wizard,,1,1,1,1
+access_foc_wizard_products,access.foc.wizard.products,model_foc_wizard_products,,1,1,1,1
+access_category_foc_sale,access.category.foc.sale,model_category_foc_sale,,1,1,1,1
+access_category_foc_products,access.category.foc.products,model_category_foc_products,,1,1,1,1
+access_foc_category_wizard,access.foc.category.wizard,model_foc_category_wizard,,1,1,1,1
+access_category_wizard_products,access.category.wizard.products,model_category_wizard_products,,1,1,1,1

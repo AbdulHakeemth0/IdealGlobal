@@ -1,0 +1,6 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_product_group,access.product.group,model_product_group,,1,1,1,1
+access_group_type,access.group.type,model_group_type,,1,1,1,1
+access_item_template,access.item.template,model_item_template,,1,1,1,1
+access_category_group,access.category.group,model_category_group,,1,1,1,1
+access_stock_item,access.stock.item,model_stock_item,,1,1,1,1

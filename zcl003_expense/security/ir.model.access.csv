@@ -1,0 +1,12 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_expense_expense,access.expense.expense,model_expense_expense,,1,1,1,1
+access_electric_expense,access.electric.expense,model_electric_expense,,1,1,1,1
+access_rent_expense,access.rent.expense,model_rent_expense,,1,1,1,1
+access_store_expense,access.store.expense,model_store_expense,,1,1,1,1
+access_expense_report_wizard,access.expense.report.wizard,model_expense_report_wizard,,1,1,1,1
+access_jvexpense_report_wizard,access.jvexpense.report.wizard,model_jvexpense_report_wizard,,1,1,1,1
+access_customer_expense,access.customer.expense,model_customer_expense,,1,1,1,1
+access_refreshment_expense,access.refreshment.expense,model_refreshment_expense,,1,1,1,1
+access_transportation_expense,access.transportation.expense,model_transportation_expense,,1,1,1,1
+access_general_expense_expense,access.general.expense_expense,model_general_expense_expense,,1,1,1,1
+access_expense_journal_line,access.expense.journal.line,model_expense_journal_line,,1,1,1,1

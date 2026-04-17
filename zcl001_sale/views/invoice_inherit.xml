@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="account_inherit_invoice_view_forms" model="ir.ui.view">
+        <field name="name">invoice.inherit.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_reference']" position="before">
+                <field name="sales_account"/>
+                <field name="narration"/>
+            </xpath>
+<!--            <xpath expr="//page[@name='other_information']/group/group[@name='sales_person']/field[@name='team_id']" position="attributes">&ndash;&gt;-->
+<!--               <attribute name="invisible">1</attribute>-->
+<!--           </xpath>-->
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="current_balance_customer"/>
+                <field name="balance_limit"/>
+                <field name="team_id"/>
+                <field name="due_days"/>
+
+
+            </xpath>
+            <xpath expr="//field[@name='payment_reference']" position="after">
+                <field name="delivery_terms"/>
+                <field name="delivery_note_no"/>
+            </xpath>
+            <xpath expr="//page/field[@name='invoice_line_ids']/tree/field[@name='price_unit']" position="after">
+                <field name="stock_in_hand"/>
+                <field name="discount_on_foc"/>
+            </xpath>
+
+            <xpath expr="//page/field[@name='line_ids']/tree/field[@name='debit']" position="before">
+                <field name="inv_amount" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

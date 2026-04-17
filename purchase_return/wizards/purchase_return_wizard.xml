@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="purchase_return_wizard_forms" model="ir.ui.view">
+            <field name="name">wizard for Return Master</field>
+            <field name="model">purchase.return.wizard.line</field>
+            <field name="arch" type="xml">
+                <form string="Purchase Forms">
+                        <group>
+                            <field name="purchase_return_wizard_id" force_save="1" invisible="1"/>
+                            <field name="purchase_order_line" force_save="1" invisible="1"/>
+                            <field name="purchase_order"/>
+                            <field name="product_id"/>
+                            <field name="name"/>
+                            <field name="qty"/>
+                            <field name="taxes_id" widget="many2many_tags" options="{'no_create': True}"/>
+                            <field name="price_unit"/>
+                            <field name="sub_total"/>
+                            <field name="piking_bill"/>
+
+                        </group>
+
+                    <footer>
+                        <button name="cancel" special="cancel" type="object" string="Cancel" class="btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="purchase_return_wizard_tree" model="ir.ui.view">
+            <field name="name">wizard for Return Master</field>
+            <field name="model">purchase.return.wizard.line</field>
+            <field name="arch" type="xml">
+                <tree string="Add To Cart" default_order='id desc'>
+                    <field name="purchase_return_wizard_id" force_save="1" invisible="1"/>
+                    <field name="purchase_order_line" force_save="1" invisible="1"/>
+                    <field name="piking_bill"/>
+                    <field name="purchase_order"/>
+                    <field name="product_id"/>
+                    <field name="name"/>
+                    <field name="qty"/>
+                    <field name="taxes_id" widget="many2many_tags" options="{'no_create': True}"/>
+                    <field name="price_unit"/>
+                    <field name="sub_total"/>
+                    <button name="add_to_the_line" type="object" class="btn-primary" string="ADD"/>
+                </tree>
+            </field>
+        </record>
+        <record id="purchase_return_wizard_action" model="ir.actions.act_window">
+            <field name="name">wizard for Return Master</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.return.wizard.line</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="purchase_return_wizard_forms"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

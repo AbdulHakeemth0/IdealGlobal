@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_vat_number,access.vat.number,model_vat_number,,1,1,1,1
+access_cr_number,access.cr.number,model_cr_number,,1,1,1,1
+access_grade_master,access.grade.master,model_grade_master,,1,1,1,1
+access_documents_master,access.documents.master,model_documents_master,,1,1,1,1

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem id="menu_expense_reports_root"
+              name="Expense Report"
+              parent="zcl003_expense.expense_config_type_id"
+              sequence="4"
+    />
+
+    <menuitem id="menu_jv_expense_reports"
+              name="Jv Expense Report"
+              parent="zcl003_expense.menu_expense_reports_root"
+              action="zcl003_expense.jv_expense_report_wizard_form_action_new"
+              sequence="2"
+    />
+
+</odoo>

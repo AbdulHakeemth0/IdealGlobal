@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="sequence_expense" model="ir.sequence">
+            <field name="name">Expense Sequence</field>
+            <field name="code">expense.sequence</field>
+            <field name="prefix">FE</field>
+            <field name="padding">6</field>
+            <field name="number_next_actual">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

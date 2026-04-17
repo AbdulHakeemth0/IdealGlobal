@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<menuitem id="cat_menu_rest" 
+	name="REST"
+	sequence="50"
+	parent="base.menu_custom" />
+	
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_incentive,access.sale.incentive,model_sale_incentive,,1,1,1,1
+access_collection_incentive,access.collection.incentive,model_collection_incentive,,1,1,1,1
+access_collection_incentive_line,access.collection.incentive.line,model_collection_incentive_line,,1,1,1,1

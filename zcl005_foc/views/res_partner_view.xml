@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!--  Author       :  Abin suresh  -->
+<!--  Copyright(c) :  2023-Present Zinfog Codelabs Pvt Ltd (<https://www.zinfog.com>).  -->
+<!--  License      :  LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).  -->
+
+<odoo>
+    <record id="view_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='branch_id']" position="after">
+                <field name="free_of_cost"/>
+                <field name="max_sale_amount" attrs="{'invisible':[('free_of_cost','=',False)]}"/>
+                <field name="discount_percentage" widget='percentage' attrs="{'invisible':[('free_of_cost','=',False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

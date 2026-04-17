@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="contacts_user_inherit_view_form">
+        <field name="name">contacts.inherit.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="sales_team.res_partner_view_team"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales_purchases']//field[@name='team_id'][2]" position="attributes">
+                <attribute name="domain">[('user_id', '=', user_id)]</attribute>
+            </xpath>
+<xpath expr="//page[@name='sales_purchases']//field[@name='team_id'][2]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="product.view_partner_property_form" model="ir.ui.view">
+        <field name="name">res.partner.product.property.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales_purchases']//field[@name='user_id']" position="after">
+                <field name="team_id"/>
+            </xpath>
+            <group name="sale">
+                <field name="property_product_pricelist" groups="product.group_product_pricelist"
+                       attrs="{'invisible': [('is_company','=',False),('parent_id','!=',False)]}"/>
+                <div name="parent_pricelists" groups="product.group_product_pricelist" colspan="2"
+                     attrs="{'invisible': ['|',('is_company','=',True),('parent_id','=',False)]}">
+                    <p>
+                        Pricelists are managed on
+                        <button name="open_commercial_entity" type="object" string="the parent company"
+                                class="oe_link"/>
+                    </p>
+                </div>
+            </group>
+
+
+        </field>
+    </record>
+</odoo>
+

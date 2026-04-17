@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    change the discount&loyalty menu into FOC menu-->
+    <menuitem
+            id="sale_loyalty.menu_discount_loyalty_type_config"
+            action="loyalty.loyalty_program_discount_loyalty_action"
+            name="Buy X Get Y"
+            parent="zcl006_sale_foc.menu_sale_foc"
+            sequence="40"
+    />
+</odoo>
+
+<!--        groups="sales_team.group_sale_manager"-->

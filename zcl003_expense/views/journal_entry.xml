@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <record model="ir.ui.view" id="journal_account_move_form_view">
+          <field name="name">journal.account.move.form</field>
+          <field name="model">account.move</field>
+          <field name="inherit_id" ref="account.view_move_form"/>
+          <field name="arch" type="xml">
+<!--               <field name="name" position="attributes">-->
+<!--                    <attribute name="attrs">{'invisible': ['|','|','|','|','|','|', ('transfer_exp', '=', True),('closingentries_exp', '=', True), ('general_exp', '=', True), ('purchase_exp', '=', True), ('container_exp', '=', True), ('salary_exp', '=', True), ('branch_exp', '=', True)]}</attribute>-->
+<!--                </field>-->
+<!--              <xpath expr="//h1/span" position="attributes">-->
+<!--                  <attribute name="invisible">1</attribute>-->
+<!--              </xpath>-->
+<!--              <h1>-->
+<!--                  <field name="container_seq" attrs="{'invisible':[('container_exp', '=', False)]}"/>-->
+<!--                  <field name="purchase_seq" attrs="{'invisible': [('purchase_exp', '=', False)]}"/>-->
+<!--                  <field name="salary_seq" attrs="{'invisible': [('salary_exp', '=', False)]}"/>-->
+<!--                  <field name="branch_seq" attrs="{'invisible': [('branch_exp', '=', False)]}"/>-->
+<!--                  <field name="transfer_seq" attrs="{'invisible': [('transfer_exp', '=', False)]}"/>-->
+<!--                  <field name="general_seq" attrs="{'invisible': [('general_exp', '=', False)]}"/>-->
+<!--                  <field name="closingentries_seq" attrs="{'invisible': [('closingentries_exp', '=', False)]}"/>-->
+<!--              </h1>-->
+
+               <xpath expr="//field[@name='current_balance_customer']" position="before">
+                   <field name="container_no" attrs="{'invisible':[('container_exp', '=', False),]}"/>
+                    <field name="internal_code" attrs="{'invisible':[('container_exp', '=', False)]}"/>
+               </xpath>
+               <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="bill_no" attrs="{'invisible':[('container_exp', '=', False)]}"/>
+               </xpath>
+               <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="bill_no" attrs="{'invisible':[('purchase_exp', '=', False)]}"/>
+                    <field name="bill_no" attrs="{'invisible': [('salary_exp', '=', False)]}"/>
+                    <field name="bill_no" attrs="{'invisible': [('branch_exp', '=', False)]}"/>
+                    <field name="bill_no" attrs="{'invisible': [('transfer_exp', '=', False)]}"/>
+                    <field name="bill_no" attrs="{'invisible': [('general_exp', '=', False)]}"/>
+                    <field name="bill_no" attrs="{'invisible': [('closingentries_exp', '=', False)]}"/>
+               </xpath>
+                <xpath expr="//field[@name='current_balance_customer']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|','|','|','|','|','|', ('transfer_exp', '=', True),('closingentries_exp', '=', True), ('general_exp', '=', True), ('purchase_exp', '=', True), ('container_exp', '=', True), ('salary_exp', '=', True), ('branch_exp', '=', True)]}</attribute>
+               </xpath>
+               <xpath expr="//field[@name='balance_limit']" position="attributes">
+                    <attribute name="attrs">{'invisible':['|','|','|','|','|','|', ('transfer_exp', '=', True), ('closingentries_exp', '=', True), ('general_exp', '=', True), ('purchase_exp', '=', True), ('container_exp', '=', True), ('salary_exp', '=', True), ('branch_exp', '=', True)]}</attribute>
+               </xpath>
+               <xpath expr="//field[@name='team_id']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|','|','|','|','|','|', ('transfer_exp', '=', True), ('closingentries_exp', '=', True), ('general_exp', '=', True), ('purchase_exp', '=', True), ('container_exp', '=', True), ('salary_exp', '=', True), ('branch_exp', '=', True)]}</attribute>
+               </xpath>
+               <xpath expr="//field[@name='sales_account']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|','|','|','|','|','|', ('transfer_exp', '=', True), ('closingentries_exp', '=', True), ('general_exp', '=', True), ('purchase_exp', '=', True), ('container_exp', '=', True), ('salary_exp', '=', True), ('branch_exp', '=', True)]}</attribute>
+               </xpath>
+          </field>
+     </record>
+<!--    <record id="view_move_tree_inherit" model="ir.ui.view">-->
+<!--        <field name="name">move.tree.inherit</field>-->
+<!--        <field name="model">account.move</field>-->
+<!--        <field name="inherit_id" ref="account.view_move_tree"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//field[@name='name']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--&lt;!&ndash;                    <attribute name="attrs">{'invisible': ['|','|','|','|','|','|', ('transfer_exp', '=', True),('closingentries_exp', '=', True), ('general_exp', '=', True), ('purchase_exp', '=', True), ('container_exp', '=', True), ('salary_exp', '=', True), ('branch_exp', '=', True)]}</attribute>&ndash;&gt;-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--    </record>-->
+
+</odoo>

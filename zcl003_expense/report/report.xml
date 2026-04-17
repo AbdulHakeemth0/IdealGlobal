@@ -1,0 +1,138 @@
+<odoo>
+    <record id="electric_expense_report_xlsx" model="ir.actions.report">
+        <field name="name">Electric Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.electric_expense_report_xlsx</field>
+        <field name="report_file">zcl003_expense.electric_expense_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+     <record id="store_report_xlsx" model="ir.actions.report">
+        <field name="name">Store Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.store_report_xlsx</field>
+        <field name="report_file">zcl003_expense.store_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="expense_report_xlsx" model="ir.actions.report">
+        <field name="name">Expense Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.expense_report_xlsx</field>
+        <field name="report_file">zcl003_expense.expense_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="rent_report_xlsx" model="ir.actions.report">
+        <field name="name">Rent Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.rent_report_xlsx</field>
+        <field name="report_file">zcl003_expense.rent_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="customer_incentive_expense_report_xlsx" model="ir.actions.report">
+        <field name="name">Customer Incentive Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.customer_incentive_expense_report_xlsx</field>
+        <field name="report_file">zcl003_expense.customer_incentive_expense_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="refreshment_expense_report_xlsx" model="ir.actions.report">
+        <field name="name">Refreshment Expense Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.refreshment_expense_report_xlsx</field>
+        <field name="report_file">zcl003_expense.refreshment_expense_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="transportation_indirect_report_xlsx" model="ir.actions.report">
+        <field name="name">Transportation Expense Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.transportation_indirect_report_xlsx</field>
+        <field name="report_file">zcl003_expense.transportation_indirect_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="general_expense_report_xlsx" model="ir.actions.report">
+        <field name="name">General Expense Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.general_expense_report_xlsx</field>
+        <field name="report_file">zcl003_expense.general_expense_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="jvcontainer_report_xlsx" model="ir.actions.report">
+        <field name="name">Jv Container Expense Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.jvcontainer_report_xlsx</field>
+        <field name="report_file">zcl003_expense.jvcontainer_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="jv_purchase_report_xlsx" model="ir.actions.report">
+        <field name="name">Jv Purchase Expense Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.jv_purchase_report_xlsx</field>
+        <field name="report_file">zcl003_expense.jv_purchase_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="jv_salary_report_xlsx" model="ir.actions.report">
+        <field name="name">Jv Salary Expense Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.jv_salary_report_xlsx</field>
+        <field name="report_file">zcl003_expense.jv_salary_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="jv_general_report_xlsx" model="ir.actions.report">
+        <field name="name">Jv General Expense Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.jv_general_report_xlsx</field>
+        <field name="report_file">zcl003_expense.jv_general_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="jv_branch_report_xlsx" model="ir.actions.report">
+        <field name="name">Jv Branch Expense Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.jv_branch_report_xlsx</field>
+        <field name="report_file">zcl003_expense.jv_branch_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="jv_transfer_report_xlsx" model="ir.actions.report">
+        <field name="name">Jv Transfer Expense Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.jv_transfer_report_xlsx</field>
+        <field name="report_file">zcl003_expense.jv_transfer_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="jv_closeentry_report_xlsx" model="ir.actions.report">
+        <field name="name">Jv Closing Entry Report</field>
+        <field name="model">expense.report.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">zcl003_expense.jv_closeentry_report_xlsx</field>
+        <field name="report_file">zcl003_expense.jv_closeentry_report_xlsx</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

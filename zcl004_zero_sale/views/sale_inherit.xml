@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="order_form_inherit_sale" model="ir.ui.view">
+        <field name="name">sale.order.form.new.sale</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']//tree//field[@name='product_template_id']"
+                   position="after">
+                <field name="price_unit" position="attributes">
+                    <attribute name="attrs">{'column_invisible':[('parent.special_sale_order', '=', True)]}</attribute>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

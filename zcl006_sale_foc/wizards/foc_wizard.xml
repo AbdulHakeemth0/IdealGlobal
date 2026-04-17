@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="second_foc_sale_view_form" model="ir.ui.view">
+            <field name="name">second.foc.view.form</field>
+            <field name="model">foc.sale.wizard</field>
+            <field name="arch" type="xml">
+                <form string="FOC">
+                    <sheet>
+                        <group>
+                            <field name="foc_type"/>
+                        </group>
+                        <group>
+                            <field name="eligible_foc_names" widget="many2many_tags"/>
+                            <field name="foc_name" placeholder="You Can Only select the Eligible FOCs"/>
+                            <field name="common_foc_names" widget="many2many_tags" placeholder="You Can Only select the Eligible FOCs" invisible="1"/>
+                            <field name="sale_order_amount"/>
+                            <field name="sale_order_foc_amount"/>
+                            <field name="percentage_amount"/>
+                        </group>
+                        <field name="foc_product_line_ids">
+                            <tree editable="bottom">
+                                <field name="product_id"/>
+                                <field name="product_price"/>
+                                <field name="product_qty"/>
+                                <field name="subtotal" sum="Total"/>
+                            </tree>
+                        </field>
+                        <group>
+                            <field name="total_amount" invisible="1"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="confirm_foc" string="CONFIRM" type="object" class="oe_highlight"/>
+                        <button special="cancel" string="CANCEL"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

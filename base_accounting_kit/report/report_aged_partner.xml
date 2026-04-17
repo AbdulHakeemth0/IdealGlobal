@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_agedpartnerbalance">
+        <t t-call="web.html_container">
+            <t t-set="data_report_margin_top" t-value="12"/>
+            <t t-set="data_report_header_spacing" t-value="9"/>
+            <t t-set="data_report_dpi" t-value="110"/>
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <h2>Aged Partner Balance</h2>
+
+                    <div class="row mt32">
+                        <div class="col-3">
+                            <strong>Start Date:</strong>
+                            <p t-esc="data['date_from']"/>
+                        </div>
+<!--                        <div class="col-3">-->
+<!--                            <strong>Period Length (days)</strong>-->
+<!--                            <p t-esc="data['period_length']"/>-->
+<!--                        </div>-->
+                    </div>
+                    <div class="row mb32">
+                        <div class="col-3">
+                            <strong>Partner's:</strong>
+                            <p>
+                                <span t-if="data['result_selection'] == 'customer'">Receivable Accounts</span>
+                                <span t-if="data['result_selection'] == 'supplier'">Payable Accounts</span>
+                                <span t-if="data['result_selection'] == 'customer_supplier'">Receivable and Payable Accounts</span>
+                            </p>
+                        </div>
+                        <div class="col-3">
+                            <strong>Target Moves:</strong>
+                            <p>
+                                <span t-if="data['target_move'] == 'all'">All Entries</span>
+                                <span t-if="data['target_move'] == 'posted'">All Posted Entries</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <table class="table table-sm table-reports">
+                        <thead>
+                            <tr>
+                                <th>Partners</th>
+                                 <th>Invoices/Bills</th>
+                                <th class="text-right">
+                                    <span>Not due</span>
+                                </th>
+
+<!--                      333333333333         -->
+                                <t t-if="data.get('4')">
+                                    <th class="text-right">
+                                        <span t-esc="data['4']['name']"/>
+                                    </th>
+                                </t>
+
+<!--                      444444444444      -->
+                                <t t-if="data.get('3')">
+                                    <th class="text-right">
+                                        <span t-esc="data['3']['name']"/>
+                                    </th>
+                                </t>
+
+<!--                      55555555555          -->
+                                <t t-if="data.get('2')">
+                                    <th class="text-right">
+                                        <span t-esc="data['2']['name']"/>
+                                    </th>
+                                </t>
+
+<!--                      6666666666          -->
+
+                                <t t-if="data.get('1')">
+                                    <th class="text-right">
+                                        <span t-esc="data['1']['name']"/>
+                                    </th>
+                                </t>
+
+<!--                     77777777777           -->
+
+                                <t t-if="data.get('0')">
+                                    <th class="text-right">
+                                        <span t-esc="data['0']['name']"/>
+                                    </th>
+                                </t>
+
+
+                                <th class="text-right">Total</th>
+                            </tr>
+                            <tr t-if="get_partner_lines">
+                                <th>Account Total</th>
+                                <th> </th>
+                                <th class="text-right"><span t-esc="get_direction[6]" t-options="{'widget': 'monetary', 'display_currency': env.company.currency_id}"/></th>
+                                <t t-if="data.get('4')">
+                                    <th class="text-right"><span t-esc="get_direction[4]" t-options="{'widget': 'monetary', 'display_currency': env.company.currency_id}"/></th>
+                                </t>
+                                <t t-if="data.get('3')">
+                                    <th class="text-right"><span t-esc="get_direction[3]" t-options="{'widget': 'monetary', 'display_currency': env.company.currency_id}"/></th>
+                                </t>
+                                <t t-if="data.get('2')">
+                                    <th class="text-right"><span t-esc="get_direction[2]" t-options="{'widget': 'monetary', 'display_currency': env.company.currency_id}"/></th>
+                                </t>
+                                <t t-if="data.get('1')">
+                                    <th class="text-right"><span t-esc="get_direction[1]" t-options="{'widget': 'monetary', 'display_currency': env.company.currency_id}"/></th>
+                                </t>
+                                <t t-if="data.get('0')">
+                                    <th class="text-right"><span t-esc="get_direction[0]" t-options="{'widget': 'monetary', 'display_currency': env.company.currency_id}"/></th>
+                                </t>
+                                <th class="text-right"><span t-esc="get_direction[5]" t-options="{'widget': 'monetary', 'display_currency': env.company.currency_id}"/></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="get_partner_lines" t-as="partner">
+                                <td>
+                                    <span t-esc="partner['name']"/>
+                                </td>
+
+                                <td>
+                                    <t t-if="partner['invoices']">
+                                        <t t-set="invoice_names"
+                                           t-value="', '.join([invoice['name'] for invoice in partner['invoices']])"/>
+                                        <span t-esc="invoice_names"/>
+                                    </t>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="partner['direction']" t-options="{'widget': 'monetary', 'display_currency': env.company.currency_id}"/>
+                                </td>
+
+                                <t t-if="data.get('4')">
+                                    <td class="text-right">
+                                        <span t-esc="partner['4']" t-options="{'widget': 'monetary', 'display_currency': env.company.currency_id}"/>
+                                    </td>
+                                </t>
+
+                                <t t-if="data.get('3')">
+                                    <td class="text-right">
+                                        <span t-esc="partner['3']" t-options="{'widget': 'monetary', 'display_currency': env.company.currency_id}"/>
+                                    </td>
+                                </t>
+
+                                <t t-if="data.get('2')">
+                                    <td class="text-right">
+                                        <span t-esc="partner['2']" t-options="{'widget': 'monetary', 'display_currency': env.company.currency_id}"/>
+                                    </td>
+                                </t>
+
+                                <t t-if="data.get('1')">
+                                    <td class="text-right">
+                                        <span t-esc="partner['1']" t-options="{'widget': 'monetary', 'display_currency': env.company.currency_id}"/>
+                                    </td>
+                                </t>
+
+                                <t t-if="data.get('0')">
+                                    <td class="text-right">
+                                        <span t-esc="partner['0']" t-options="{'widget': 'monetary', 'display_currency': env.company.currency_id}"/>
+                                    </td>
+                                </t>
+
+                                <td class="text-right">
+                                    <span t-esc="partner['total']" t-options="{'widget': 'monetary', 'display_currency': env.company.currency_id}"/>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

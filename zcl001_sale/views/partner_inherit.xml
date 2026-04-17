@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/div/field[@name='is_company']" position="before">
+                    <field name="ref"/>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="customer_credit_limit"/>
+                    <field name="customer_days_notification"/>
+                    <field name="guaranty_cheque" force_save="1"/>
+                    <field name="documents_id" force_save="1"/>
+                    <field name="block" force_save="1"/>
+                    <field name="rate_type_id" force_save="1"/>
+                    <field name="active" widget="boolean_toggle"/>
+                </xpath>
+<!--                <xpath expr="//field[@name='vat']" position="before">-->
+<!--                    <field name="building_name"/>-->
+<!--                </xpath>-->
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="vatin_id" force_save="1"/>
+                    <field name="building_name" force_save="1"/>
+                    <field name="pc" force_save="1"/>
+                    <field name="po_box" force_save="1"/>
+                    <field name="crno_id" force_save="1"/>
+                    <field name="grade_id" force_save="1"/>
+                    <field name="category" force_save="1"/>
+                    <field name="non_reconciled_receivable_balance" force_save="1"/>
+                    <field name="current_balance_customer" force_save="1"/>
+<!--                    <field name="walkin_customers"/>-->
+                </xpath>
+                <xpath expr="//page[@name='sales_purchases']" position="before">
+                    <page string="Other Info">
+                    <group>
+                        <group string="Owner Details">
+                            <field name="owner_id"/>
+                            <field name="owner_phone"/>
+                            <field name="owner_email"/>
+                        </group>
+                        <group string="Sponsor Details">
+                            <field name="sponsor_id"/>
+                            <field name="sponsor_phone"/>
+                            <field name="sponsor_email"/>
+                        </group>
+                    </group>
+                        <group>
+                        <group string="Contact Person Details">
+                            <field name="contact_person_id"/>
+                            <field name="contact_person_phone"/>
+                            <field name="contact_person_email"/>
+                        </group>
+                        <group string="Others">
+                            <field name="id_proof"/>
+                            <field name="id_doc"/>
+                            <field name="pdc_cheque"/>
+                            <field name="create_date"/>
+                            <field name="block_reason"/>
+                        </group>
+                    </group>
+                    </page>
+                </xpath>
+                <!--                <xpath expr="//page[@name='contact_addresses']" position="after">-->
+                <!--                    <page string="Walk-in customer" attrs="{'invisible': [('walkin_customers', '=', False)]}">-->
+                <!--                        <field name="walkin_customer_ids">-->
+                <!--                        <tree editable="bottom">-->
+                <!--                            <field name="name"/>-->
+                <!--                            <field name="phone"/>-->
+                <!--                        </tree>-->
+                <!--                        </field>-->
+                <!--                    </page>-->
+                <!--                </xpath>-->
+            </field>
+        </record>
+        <record id="view_users_form_inherit" model="ir.ui.view">
+            <field name="name">res.users.form.inherit</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='preferences']" position="after">
+                    <page string="User Security" name="user">
+                        <group>
+                            <group string="Creation">
+                                <field name="create_customer"/>
+                                <field name="create_product"/>
+                                <field name="create_sale_order"/>
+                                <field name="create_invoice"/>
+                                <field name="create_purchase_order"/>
+                                <field name="create_delivery_order"/>
+                                <field name="create_sale_return"/>
+                                <field name="create_bill"/>
+                                <field name="create_transfer_request"/>
+                                <field name="create_customer_payment"/>
+                                <field name="create_vendor_payment"/>
+                            </group>
+                            <group string="Confirmation">
+                                <field name="confirm_sale_order"/>
+                                <field name="confirm_purchase_order"/>
+                                <field name="confirm_sale_return"/>
+                                <field name="confirm_delivery_order"/>
+                                <field name="confirm_transfer_request"/>
+                                <field name="confirm_invoice"/>
+                                <field name="confirm_bill"/>
+                                <field name="confirm_customer_payment"/>
+                                <field name="confirm_vendor_payment"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

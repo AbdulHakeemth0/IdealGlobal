@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="purchase_order_view_form" model="ir.ui.view">
+        <field name="name">purchase_automatic_workflow.purchase_order.view_form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_confirm']" position="after">
+                <button name="purchase_auto" type="object" class="oe_stat_button" string="Auto Workflow"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

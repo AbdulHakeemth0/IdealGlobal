@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="new_action_move_out_refund_type_inherit" model="ir.actions.act_window">
+            <field name="name">Credit Notes</field>
+            <field name="res_model">account.move</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_id" ref="account.view_out_credit_note_tree"/>
+            <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+            <field name="domain">[('move_type', '=', 'out_refund'),('invoice_user_id', '=', uid)]</field>
+            <field name="context">{'default_move_type': 'out_refund'}</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a credit note
+              </p><p>
+                Note that the easiest way to create a credit note is to do it directly
+                from the customer invoice.
+              </p>
+            </field>
+    </record>
+<!--    <menuitem id="menu_sale_invoices_credit_notes_type1_new"-->
+<!--              name="Credit Notes"-->
+<!--              action="zcl001_sale.new_action_move_out_refund_type_inherit"-->
+<!--              parent="account.menu_finance_receivables"-->
+<!--              sequence="2" groups="zcl001_sale.group_invoices_user"/>-->
+<!--    <menuitem id="account.menu_action_move_out_invoice_type" action="account.action_move_out_invoice_type"-->
+<!--               parent="account.menu_finance_receivables"-->
+<!--              sequence="1" groups="zcl001_sale.group_admin_user"/>-->
+
+</odoo>

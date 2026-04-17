@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="sale_return_wizard_forms" model="ir.ui.view">
+            <field name="name">wizard for Return Master</field>
+            <field name="model">sale.return.wizard.line</field>
+            <field name="arch" type="xml">
+                <form string="Sale Forms">
+                        <group>
+                            <field name="sale_return_wizard_id" force_save="1" invisible="1"/>
+                            <field name="sale_order_line" force_save="1" invisible="1"/>
+                            <field name="invoice_number"/>
+                            <field name="sale_order" invisible="1"/>
+                            <field name="product_id"/>
+                            <field name="name"/>
+                            <field name="qty"/>
+                            <field name="tax_id" widget="many2many_tags" options="{'no_create': True}"/>
+                            <field name="price_unit"/>
+                            <field name="sub_total"/>
+
+                        </group>
+
+                    <footer>
+                        <button name="cancel" special="cancel" type="object" string="Cancel" class="btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="sale_return_wizard_tree" model="ir.ui.view">
+            <field name="name">wizard for Return Master</field>
+            <field name="model">sale.return.wizard.line</field>
+            <field name="arch" type="xml">
+                <tree string="Add To Cart" default_order='id desc'>
+                    <field name="sale_return_wizard_id" force_save="1" invisible="1"/>
+                    <field name="sale_order_line" force_save="1" invisible="1"/>
+                    <field name="invoice_number"/>
+                    <field name="sale_order"/>
+                    <field name="product_id"/>
+                    <field name="name"/>
+                    <field name="qty"/>
+                    <field name="tax_id" widget="many2many_tags" options="{'no_create': True}"/>
+                    <field name="price_unit"/>
+                    <field name="sub_total"/>
+                    <button name="add_to_the_line" type="object" class="btn-primary" string="ADD"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sale_return_wizard_action" model="ir.actions.act_window">
+            <field name="name">wizard for Return Master</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.return.wizard.line</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="sale_return_wizard_forms"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+
+</odoo>

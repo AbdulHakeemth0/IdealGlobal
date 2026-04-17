@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--  Author       :  Anoop Jayaprakash  -->
+<!--  Copyright(c) :  2023-Present Zinfog Codelabs Pvt Ltd (<https://www.zinfog.com>).  -->
+<!--  License      :  LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).  -->
+
+<odoo>
+    <data>
+        <record id="action_scrap_pdf_report" model="ir.actions.report">
+            <field name="name">scrap PDF Report</field>
+            <field name="model">scrap.pdf.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">zcl_scrap_report.scrap_pdf_report_template</field>
+            <field name="report_file">zcl_scrap_report.scrap_pdf_report_template</field>
+        </record>
+    </data>
+</odoo>
